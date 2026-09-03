@@ -1,3 +1,5 @@
+import TestApp
+    from "./apps/test/testApp.js";
 import "./css/style.css";
 
 
@@ -21,24 +23,7 @@ import "./desktop/taskbar.js";
 // TEMPORARY TEST APPLICATION
 // ========================================
 
-appManager.registerApp({
 
-    id: "test",
-
-    name: "Test Application",
-
-    render: () => {
-
-        return `
-            <h2>RagebaitOS Window System</h2>
-
-            <p>
-                If you can see this,
-                the Window Manager works.
-            </p>
-        `;
-    }
-});
 
 appManager.registerApp({
 
@@ -61,6 +46,10 @@ appManager.registerApp({
         `;
     }
 });
+
+appManager.registerApp(
+    new TestApp()
+);
 
 console.log(
     "🚀 RagebaitOS initialized."

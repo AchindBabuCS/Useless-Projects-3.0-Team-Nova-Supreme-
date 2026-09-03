@@ -1,53 +1,23 @@
 import AppBase
     from "../base/appBase.js";
 
-
-class TestApp
-    extends AppBase {
+class TestApp extends AppBase {
 
     constructor() {
 
         super({
-
             id: "test",
-
             name: "Test App",
-
-            icon: "🧪",
-
-            width: 400,
-
-            height: 300
+            icon: "🧪"
         });
     }
-
-
-    initialize() {
-
-        console.log(
-            "🧪 TEST → initialize()"
-        );
-    }
-
-
-    open(windowId) {
-
-        super.open(
-            windowId
-        );
-
-        console.log(
-            "🧪 TEST → open()"
-        );
-    }
-
 
     render() {
 
         return `
             <div style="
                 padding: 20px;
-                font-family: sans-serif;
+                font-family: Arial, sans-serif;
             ">
 
                 <h2>
@@ -55,33 +25,18 @@ class TestApp
                 </h2>
 
                 <p>
-                    AppBase is connected!
+                    AppBase is working!
                 </p>
 
                 <p>
-                    Application ID:
-                    <strong>${this.id}</strong>
-                </p>
-
-                <p>
-                    Window ID:
-                    <strong>${this.windowId}</strong>
+                    This application is using
+                    the existing RagebaitOS
+                    WindowManager.
                 </p>
 
             </div>
         `;
     }
-
-
-    close() {
-
-        console.log(
-            "🧪 TEST → close()"
-        );
-
-        super.close();
-    }
 }
-
 
 export default TestApp;
