@@ -1,3 +1,6 @@
+import WeatherApp from "./apps/weather/weather.js";
+import NotepadApp from "./apps/notepad/notepad.js";
+import GalleryApp from "./apps/gallery/gallery.js";
 import "./css/style.css";
 
 
@@ -24,6 +27,40 @@ import MusicPlayerApp from "./apps/music-player/musicPlayer.js";
 // ========================================
 
 
+
+appManager.registerApp({
+
+    id: "second",
+
+    name: "Second Application",
+
+    icon: "★",
+
+    render: () => {
+
+        return `
+            <h2>
+                Second Application
+            </h2>
+
+            <p>
+                Dynamic taskbar test.
+            </p>
+        `;
+    }
+});
+
+appManager.registerApp(
+    new WeatherApp()
+);
+
+appManager.registerApp(
+    new NotepadApp()
+);
+
+appManager.registerApp(
+    new GalleryApp()
+);
 
 appManager.registerApp(
     new CalculatorApp()
