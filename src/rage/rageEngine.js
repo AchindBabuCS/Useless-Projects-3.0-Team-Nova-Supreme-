@@ -34,7 +34,7 @@ class RageEngine {
 
         this.enabled = true;
 
-        this.sabotageChance = 0;
+        this.sabotageChance = 0.6;
 
         this.registerSabotages();
 
