@@ -584,19 +584,13 @@ No physical hardware is required for RagebaitOS.
 
 ## Video
 
-*Demo video will be added after the final project is completed.*
 
-The demonstration video will showcase:
 
-* RagebaitOS booting into the desktop
-* Opening applications
-* Normal application functionality
-* Window management
-* Taskbar interaction
-* Global sabotage mechanics
-* Application-specific sabotage
-* Increasing user frustration
-* The final chaotic RagebaitOS experience
+https://github.com/user-attachments/assets/6d450222-e0c4-4182-9650-e658b544f86d
+
+
+
+
 
 ---
 
