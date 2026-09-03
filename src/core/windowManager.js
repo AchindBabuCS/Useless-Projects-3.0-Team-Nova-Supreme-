@@ -344,10 +344,28 @@ class WindowManager {
         const windowElement =
             this.windows.get(id);
 
+
         if (!windowElement) {
             return;
         }
 
+
+        eventBus.emit(
+            "WINDOW_MAXIMIZE_REQUEST",
+            {
+                windowId: id
+            }
+        );
+    }
+
+    toggleMaximize(id) {
+
+        const windowElement =
+            this.windows.get(id);
+
+        if (!windowElement) {
+            return;
+        }
 
         windowElement.classList.toggle(
             "window-maximized"
@@ -480,8 +498,10 @@ class WindowManager {
 }
 
 
+
 const windowManager =
     new WindowManager();
 
 
 export default windowManager;
+

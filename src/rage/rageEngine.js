@@ -1,9 +1,23 @@
 import eventBus from "../core/eventBus.js";
+import windowManager
+    from "../core/windowManager.js";
+
 import rageState from "./rageState.js";
+
 import sabotageManager
     from "./sabotageManager.js";
+
 import appRedirect
     from "./sabotages/appRedirect.js";
+
+import keyboardCorruption
+    from "./sabotages/keyboardCorruption.js";
+
+import wordReverse
+    from "./sabotages/wordReverse.js";
+
+import expandMinimize
+    from "./sabotages/expandMinimize.js";
 
 
 class RageEngine {
@@ -19,6 +33,7 @@ class RageEngine {
         this.initialize();
     }
 
+
     // ========================================
     // REGISTER SABOTAGES
     // ========================================
@@ -27,6 +42,17 @@ class RageEngine {
 
         sabotageManager.register(
             appRedirect
+        );
+
+        sabotageManager.register(
+            keyboardCorruption
+        );
+
+        sabotageManager.register(
+            wordReverse
+        );
+        sabotageManager.register(
+            expandMinimize
         );
     }
 
@@ -40,6 +66,7 @@ class RageEngine {
         /*
          * Application opening.
          */
+
         eventBus.on(
             "APP_OPEN_REQUEST",
             (data) => {
@@ -54,6 +81,7 @@ class RageEngine {
         /*
          * Generic UI click.
          */
+
         eventBus.on(
             "UI_CLICK",
             (data) => {
@@ -68,6 +96,7 @@ class RageEngine {
         /*
          * Keyboard input.
          */
+
         eventBus.on(
             "KEYBOARD_INPUT",
             (data) => {
@@ -82,6 +111,7 @@ class RageEngine {
         /*
          * Window maximize request.
          */
+
         eventBus.on(
             "WINDOW_MAXIMIZE_REQUEST",
             (data) => {
@@ -91,8 +121,22 @@ class RageEngine {
                 );
             }
         );
+        /*
+        * Normal maximize approved.
+        */
+
+        eventBus.on(
+            "WINDOW_MAXIMIZE_APPROVED",
+            (data) => {
+
+                this.approveMaximize(
+                    data
+                );
+            }
+        );
     }
 
+    
 
     // ========================================
     // SHOULD SABOTAGE?
@@ -126,6 +170,7 @@ class RageEngine {
         /*
          * No sabotage.
          */
+
         if (
             !this.shouldSabotage()
         ) {
@@ -144,6 +189,7 @@ class RageEngine {
         /*
          * Rage happened.
          */
+
         rageState.addRage(5);
 
 
@@ -156,6 +202,7 @@ class RageEngine {
          * Ask App Redirect sabotage
          * to handle the event.
          */
+
         const triggered =
             sabotageManager.trigger(
                 "app-redirect",
@@ -169,6 +216,7 @@ class RageEngine {
          * If sabotage handled the event,
          * don't open the original app.
          */
+
         if (triggered) {
 
             return;
@@ -178,6 +226,7 @@ class RageEngine {
         /*
          * Fallback.
          */
+
         eventBus.emit(
             "APP_OPEN_APPROVED",
             {
@@ -212,6 +261,7 @@ class RageEngine {
         /*
          * Click drift.
          */
+
         sabotageManager.trigger(
             "click-drift",
             data
@@ -225,21 +275,39 @@ class RageEngine {
 
     handleKeyboardInput(data) {
 
+        /*
+         * Word reversal gets its own chance.
+         */
+
         if (
-            !this.shouldSabotage()
+            this.shouldSabotage()
         ) {
 
-            return;
+            rageState.addRage(1);
+
+            sabotageManager.trigger(
+                "word-reverse",
+                data
+            );
         }
 
 
-        rageState.addRage(1);
+        /*
+         * Keyboard corruption gets
+         * an independent chance.
+         */
 
+        if (
+            this.shouldSabotage()
+        ) {
 
-        sabotageManager.trigger(
-            "keyboard-corruption",
-            data
-        );
+            rageState.addRage(1);
+
+            sabotageManager.trigger(
+                "keyboard-corruption",
+                data
+            );
+        }
     }
 
 
@@ -270,6 +338,12 @@ class RageEngine {
             data
         );
     }
+    approveMaximize(data) {
+
+        windowManager.toggleMaximize(
+            data.windowId
+        );
+    }
 }
 
 
@@ -282,4 +356,3 @@ const rageEngine =
 
 
 export default rageEngine;
-
