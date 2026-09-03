@@ -304,19 +304,22 @@ RagebaitOS
 
 ### Screenshot 1
 
-*Add screenshot showing the RagebaitOS desktop.*
+<img width="1917" height="862" alt="Screenshot 2026-09-04 042636" src="https://github.com/user-attachments/assets/9376fb1d-c8f0-44c8-b694-4bd388d659fc" />
+
 
 **Caption:** RagebaitOS desktop environment showing the taskbar and application interface.
 
 ### Screenshot 2
 
-*Add screenshot showing an application running inside RagebaitOS.*
+<img width="1917" height="863" alt="Screenshot 2026-09-04 041911" src="https://github.com/user-attachments/assets/3fc8f086-6b6e-4616-b152-eeebfcb15167" />
+
 
 **Caption:** An application running inside the RagebaitOS window management system.
 
 ### Screenshot 3
 
-*Add screenshot demonstrating one of the sabotage mechanics.*
+<img width="1917" height="866" alt="Screenshot 2026-09-04 041928" src="https://github.com/user-attachments/assets/c5635ff3-33f3-4ac0-bca4-ae2beda834dd" />
+
 
 **Caption:** An example of RagebaitOS intentionally sabotaging a normal user interaction.
 
