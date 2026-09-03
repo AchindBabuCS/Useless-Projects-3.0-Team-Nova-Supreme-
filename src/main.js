@@ -17,7 +17,7 @@ import rageState from "./rage/rageState.js";
 import "./desktop/taskbar.js";
 import CalculatorApp from "./apps/calculator/calculator.js";
 import BrowserApp from "./apps/browser/browser.js";
-
+import MusicPlayerApp from "./apps/music-player/musicPlayer.js";
 
 // ========================================
 // TEMPORARY TEST APPLICATION
@@ -31,8 +31,9 @@ appManager.registerApp(
 appManager.registerApp(
     BrowserApp
 );
-
-
+appManager.registerApp(
+    MusicPlayerApp
+);
 console.log(
     "🚀 RagebaitOS initialized."
 );
