@@ -608,8 +608,8 @@ Additional demonstration materials may include:
 
 # Team Contributions
 
-* Achind Babu: *To be filled*
-* Anvay Patrick Savio Dsouza: *To be filled*
+* Achind Babu: Fullstack Development
+* Anvay Patrick Savio Dsouza: Fullstack Development
 
 ---
 
