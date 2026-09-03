@@ -2,28 +2,32 @@ import eventBus from "../core/eventBus.js";
 import rageState from "./rageState.js";
 import sabotageManager
     from "./sabotageManager.js";
+import appRedirect
+    from "./sabotages/appRedirect.js";
 
 
 class RageEngine {
 
     constructor() {
 
-        // ========================================
-        // CONFIGURATION
-        // ========================================
-
         this.enabled = true;
 
-        /*
-         * Overall probability that a rage event
-         * will happen.
-         *
-         * Keep this low while testing.
-         */
-        this.sabotageChance = 0.30;
+        this.sabotageChance = 1.0;
 
+        this.registerSabotages();
 
         this.initialize();
+    }
+
+    // ========================================
+    // REGISTER SABOTAGES
+    // ========================================
+
+    registerSabotages() {
+
+        sabotageManager.register(
+            appRedirect
+        );
     }
 
 
@@ -278,3 +282,4 @@ const rageEngine =
 
 
 export default rageEngine;
+
