@@ -15,6 +15,8 @@ import rageState from "./rage/rageState.js";
 
 
 import "./desktop/taskbar.js";
+import CalculatorApp from "./apps/calculator/calculator.js";
+import BrowserApp from "./apps/browser/browser.js";
 
 
 // ========================================
@@ -23,27 +25,12 @@ import "./desktop/taskbar.js";
 
 
 
-appManager.registerApp({
-
-    id: "second",
-
-    name: "Second Application",
-
-    icon: "★",
-
-    render: () => {
-
-        return `
-            <h2>
-                Second Application
-            </h2>
-
-            <p>
-                Dynamic taskbar test.
-            </p>
-        `;
-    }
-});
+appManager.registerApp(
+    new CalculatorApp()
+);
+appManager.registerApp(
+    BrowserApp
+);
 
 
 console.log(
