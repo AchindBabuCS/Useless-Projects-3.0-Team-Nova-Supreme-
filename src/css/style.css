@@ -1,4 +1,11 @@
 
+:root {
+    --rage-cursor-offset-x: 0px;
+    --rage-cursor-offset-y: 0px;
+
+    --rage-cursor-distortion-x: 0px;
+    --rage-cursor-distortion-y: 0px;
+}
 /* ========================================
    RAGEBAITOS - GLOBAL RESET
    ======================================== */
@@ -30,7 +37,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 
     /* Prevent the browser's normal cursor */
-    cursor: default;
+    cursor: none;
 
     background: #111;
 }
@@ -433,4 +440,43 @@ body {
 .taskbar-app.app-minimized {
 
     opacity: 0.6;
+}
+/* ========================================
+   RAGE CURSOR
+   ======================================== */
+
+body {
+
+    cursor: none;
+}
+
+
+#rage-cursor {
+    position: fixed;
+
+    width: 24px;
+    height: 24px;
+
+    pointer-events: none;
+
+    z-index: 999999;
+
+    font-size: 24px;
+
+    line-height: 24px;
+
+    transform:
+        translate(
+            var(--rage-cursor-offset-x, 0px),
+            var(--rage-cursor-offset-y, 0px)
+        )
+        translate(
+            var(--rage-cursor-distortion-x, 0px),
+            var(--rage-cursor-distortion-y, 0px)
+        );
+
+    transition:
+        transform 0.08s ease-out;
+
+    user-select: none;
 }

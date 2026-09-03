@@ -6,11 +6,13 @@ import eventBus from "./core/eventBus.js";
 import appManager from "./core/appManager.js";
 import windowManager from "./core/windowManager.js";
 import "./core/inputManager.js";
+import "./rage/sabotages/rageCursor.js";
 
 
 // Rage systems
 import rageEngine from "./rage/rageEngine.js";
 import rageState from "./rage/rageState.js";
+
 
 import "./desktop/taskbar.js";
 
@@ -63,3 +65,4 @@ appManager.registerApp({
 console.log(
     "🚀 RagebaitOS initialized."
 );
+

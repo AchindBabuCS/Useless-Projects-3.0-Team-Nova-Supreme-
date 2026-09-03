@@ -1,10 +1,10 @@
-const clickDrift = {
+const cursorDistortion = {
 
-    id: "click-drift",
+    id: "cursor-distortion",
 
-    offsetX: 0,
+    x: 0,
 
-    offsetY: 0,
+    y: 0,
 
 
     // ========================================
@@ -13,39 +13,38 @@ const clickDrift = {
 
     trigger(data) {
 
-        const driftAmount =
-            15;
+        const distortionAmount =
+            8;
 
 
-        this.offsetX +=
+        this.x +=
             (Math.random() * 2 - 1) *
-            driftAmount;
+            distortionAmount;
 
-        this.offsetY +=
+        this.y +=
             (Math.random() * 2 - 1) *
-            driftAmount;
+            distortionAmount;
 
 
         /*
-         * Prevent the fake cursor
-         * from drifting too far away.
+         * Keep distortion under control.
          */
 
-        this.offsetX =
+        this.x =
             Math.max(
-                -50,
+                -30,
                 Math.min(
-                    50,
-                    this.offsetX
+                    30,
+                    this.x
                 )
             );
 
-        this.offsetY =
+        this.y =
             Math.max(
-                -50,
+                -30,
                 Math.min(
-                    50,
-                    this.offsetY
+                    30,
+                    this.y
                 )
             );
 
@@ -55,22 +54,22 @@ const clickDrift = {
 
 
     // ========================================
-    // APPLY DRIFT
+    // APPLY DISTORTION
     // ========================================
 
     apply() {
 
         document.documentElement.style.setProperty(
-            "--rage-cursor-offset-x",
-            `${this.offsetX}px`
+            "--rage-cursor-distortion-x",
+            `${this.x}px`
         );
 
         document.documentElement.style.setProperty(
-            "--rage-cursor-offset-y",
-            `${this.offsetY}px`
+            "--rage-cursor-distortion-y",
+            `${this.y}px`
         );
     }
 };
 
 
-export default clickDrift;
+export default cursorDistortion;

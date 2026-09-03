@@ -19,6 +19,14 @@ import wordReverse
 import expandMinimize
     from "./sabotages/expandMinimize.js";
 
+import clickDrift
+    from "./sabotages/clickDrift.js";
+
+import cursorDistortion
+    from "./sabotages/cursorDistortion.js";
+
+import runawayButtons
+    from "./sabotages/runawayButtons.js";
 
 class RageEngine {
 
@@ -54,6 +62,24 @@ class RageEngine {
         sabotageManager.register(
             expandMinimize
         );
+        sabotageManager.register(
+            clickDrift
+        );
+
+        sabotageManager.register(
+            cursorDistortion
+        );
+
+        sabotageManager.register(
+            runawayButtons
+        );
+
+
+        /*
+        * Runaway buttons need a persistent
+        * mouseover listener.
+        */
+        runawayButtons.initialize();
     }
 
 
@@ -130,6 +156,15 @@ class RageEngine {
             (data) => {
 
                 this.approveMaximize(
+                    data
+                );
+            }
+        );
+        eventBus.on(
+            "POINTER_MOVE",
+            (data) => {
+
+                this.handlePointerMove(
                     data
                 );
             }
@@ -253,15 +288,6 @@ class RageEngine {
         rageState.addRage(1);
 
 
-        console.log(
-            "😈 Rage triggered on UI click."
-        );
-
-
-        /*
-         * Click drift.
-         */
-
         sabotageManager.trigger(
             "click-drift",
             data
@@ -342,6 +368,24 @@ class RageEngine {
 
         windowManager.toggleMaximize(
             data.windowId
+        );
+    }
+    handlePointerMove(data) {
+
+        if (
+            !this.shouldSabotage()
+        ) {
+
+            return;
+        }
+
+
+        rageState.addRage(1);
+
+
+        sabotageManager.trigger(
+            "cursor-distortion",
+            data
         );
     }
 }
