@@ -1,3 +1,4 @@
+import WeatherApp from "./apps/weather/weather.js";
 import "./css/style.css";
 
 
@@ -45,6 +46,9 @@ appManager.registerApp({
     }
 });
 
+appManager.registerApp(
+    new WeatherApp()
+);
 
 console.log(
     "🚀 RagebaitOS initialized."

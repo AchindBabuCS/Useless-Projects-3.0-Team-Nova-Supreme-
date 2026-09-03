@@ -1,0 +1,112 @@
+.rage-weather-app {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+
+.rage-weather-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+
+.rage-weather-title {
+    margin: 0 0 8px 0;
+    font-size: 24px;
+}
+
+
+.rage-weather-location {
+    font-size: 16px;
+}
+
+
+.rage-weather-time {
+    text-align: right;
+}
+
+
+.rage-weather-clock {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+.rage-weather-timezone {
+    font-size: 13px;
+    opacity: 0.7;
+    margin-top: 4px;
+}
+
+
+.rage-weather-current {
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+.rage-weather-temperature {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+
+.rage-weather-condition {
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+
+.rage-weather-details {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+
+.rage-weather-forecast-section h3 {
+    margin-bottom: 12px;
+}
+
+
+.rage-weather-forecast {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+}
+
+
+.rage-weather-forecast-card {
+    min-width: 110px;
+    padding: 14px;
+    border-radius: 10px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+
+.rage-weather-forecast-day {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+.rage-weather-forecast-temperature {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+
+.rage-weather-forecast-condition {
+    font-size: 13px;
+    opacity: 0.8;
+}
