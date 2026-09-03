@@ -1,4 +1,5 @@
 import WeatherApp from "./apps/weather/weather.js";
+import NotepadApp from "./apps/notepad/notepad.js";
 import "./css/style.css";
 
 
@@ -48,6 +49,10 @@ appManager.registerApp({
 
 appManager.registerApp(
     new WeatherApp()
+);
+
+appManager.registerApp(
+    new NotepadApp()
 );
 
 console.log(
