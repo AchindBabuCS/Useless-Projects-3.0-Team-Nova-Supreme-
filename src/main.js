@@ -5,6 +5,7 @@ import "./css/style.css";
 import eventBus from "./core/eventBus.js";
 import appManager from "./core/appManager.js";
 import windowManager from "./core/windowManager.js";
+import "./core/inputManager.js";
 
 
 // Rage systems
