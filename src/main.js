@@ -1,5 +1,3 @@
-import TestApp
-    from "./apps/test/testApp.js";
 import "./css/style.css";
 
 
@@ -47,9 +45,6 @@ appManager.registerApp({
     }
 });
 
-appManager.registerApp(
-    new TestApp()
-);
 
 console.log(
     "🚀 RagebaitOS initialized."
